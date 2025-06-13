@@ -155,7 +155,8 @@ const ResourceView = () => {
              ${data.status === 'read' ? 'block' : 'hidden'} `}>
               <button type="button" className="bg-red-600
               text-base font-medium font-description rounded
-              text-white cursor-pointer w-full px-0 lg:px-4 py-2"
+              text-white cursor-pointer w-full lg:w-auto
+               px-0 lg:px-4 py-2"
               onClick={() => updateDocumentStatus('unread')}>
                 Mask as Unread
               </button>
@@ -164,7 +165,8 @@ const ResourceView = () => {
              ${data.status === 'read' ? 'hidden' : 'block'} `}>
               <button type="button" className="bg-green-600
               text-base font-medium font-description rounded
-              text-white cursor-pointer w-full px-0 lg:px-4 py-2"
+              text-white cursor-pointer w-full lg:w-auto
+              px-0 lg:px-4 py-2"
               onClick={() => updateDocumentStatus('read')} >
                 Mask as Read
               </button>
