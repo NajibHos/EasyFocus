@@ -7,9 +7,9 @@ const NoteView = () => {
 
   const databaseID = import.meta.env.VITE_APPWRITE_DATABASE_ID;
   const collectionID = import.meta.env.VITE_APPWRITE_NOTES_COLLECTION;
-  const navigate = useNavigate();
-  const {docID} = location.state || ''; // document ID
   const location = useLocation();
+  const {docID} = location.state || ''; // document ID
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [note, setNote] = useState({});
 
