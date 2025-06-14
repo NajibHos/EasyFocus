@@ -92,7 +92,7 @@ const AddNewResource = () => {
           <div className="h-auto w-full text-center">
             <h2 className="text-2xl lg:text-xl font-medium
              font-description text-white">
-              Add New Note
+              Add New Resource
             </h2>
           </div>
           <div className="h-auto w-full text-center">
