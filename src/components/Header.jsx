@@ -27,7 +27,7 @@ const Header = () => {
             !user ? (
 
               <>
-              <a href="https://github.com/NajibHos/FocusFlow"
+              <a href="https://github.com/NajibHos/EasyFocus"
                target="_blank"
                className="text-lg text-zinc-200 cursor-pointer
                hover:text-white px-4 py-2 bg-transparent
