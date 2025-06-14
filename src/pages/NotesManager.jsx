@@ -173,7 +173,7 @@ const Notes = () => {
         </div>
         <div className="h-auto w-full flex justify-start items-center
          gap-8 lg:max-2xl:gap-10 overflow-x-auto">
-          
+
           {/* Default All filter button */}
           <button type="button" className={`px-4 py-2 text-base
            font-medium font-description rounded cursor-pointer
