@@ -7,7 +7,8 @@ const ResourceCards = ({data, setActiveFilter, removeResource}) => {
 
   return (
     <div className="h-[180px] w-full  flex flex-col justify-center
-     items-center gap-6 p-5 rounded-xl bg-zinc-950" >
+     items-center gap-6 p-5 rounded-xl bg-zinc-950
+     border border-zinc-700" >
       <div className="h-auto w-full flex flex-col justify-center
        items-center gap-2">
         <div className="h-auto w-full text-left cursor-pointer"
