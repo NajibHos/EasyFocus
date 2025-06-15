@@ -14,8 +14,7 @@ const ResourceCards = ({data, setActiveFilter, removeResource}) => {
         <div className="h-auto w-full text-left cursor-pointer"
         onClick={() => {
           navigate(
-            '/resource-view',
-            {state: {docID: data.$id}} //navigating to note view page
+            `/resource-view/${data.id}` // dynamic route with document id
           );
         }} >
           <h2 className="text-lg font-medium font-description
@@ -26,8 +25,7 @@ const ResourceCards = ({data, setActiveFilter, removeResource}) => {
         <div className="h-auto w-full text-left cursor-pointer"
         onClick={() => {
           navigate(
-            '/resource-view',
-            {state: {docID: data.$id}} //navigating to note view page
+            `/resource-view/${data.id}` // dynamic route with document id
           );
         }} >
           <h2 className={`text-lg font-medium font-description
@@ -42,8 +40,7 @@ const ResourceCards = ({data, setActiveFilter, removeResource}) => {
           <button type="button" className="cursor-pointer"
           onClick={() => {
             navigate(
-              '/resource-view',
-              {state: {docID: data.$id}} // navigating to view page
+            `/resource-view/${data.id}` // dynamic route with document id
             )
           }} >
             <ExternalLink size={22} className="text-blue-600" />
@@ -52,8 +49,8 @@ const ResourceCards = ({data, setActiveFilter, removeResource}) => {
         <div className="h-auto w-auto">
           <button type="button" className="cursor-pointer"
           onClick={() => {
-            setActiveFilter(data.category); // assigning note category
             removeResource(data.$id, data.category); // removing doc
+            setActiveFilter(data.category); // assigning note category
           }}>
             <Trash2 size={22} className="text-red-600" />
           </button>
