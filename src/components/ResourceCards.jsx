@@ -14,7 +14,7 @@ const ResourceCards = ({data, setActiveFilter, removeResource}) => {
         <div className="h-auto w-full text-left cursor-pointer"
         onClick={() => {
           navigate(
-            `/resource-view/${data.id}` // dynamic route with document id
+            `/resource-view/${data.$id}` // dynamic route with document id
           );
         }} >
           <h2 className="text-lg font-medium font-description
@@ -25,7 +25,7 @@ const ResourceCards = ({data, setActiveFilter, removeResource}) => {
         <div className="h-auto w-full text-left cursor-pointer"
         onClick={() => {
           navigate(
-            `/resource-view/${data.id}` // dynamic route with document id
+            `/resource-view/${data.$id}` // dynamic route with document id
           );
         }} >
           <h2 className={`text-lg font-medium font-description
@@ -40,7 +40,7 @@ const ResourceCards = ({data, setActiveFilter, removeResource}) => {
           <button type="button" className="cursor-pointer"
           onClick={() => {
             navigate(
-            `/resource-view/${data.id}` // dynamic route with document id
+            `/resource-view/${data.$id}` // dynamic route with document id
             )
           }} >
             <ExternalLink size={22} className="text-blue-600" />
