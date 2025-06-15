@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { databases } from "../appwrite/appwrite";
 import ViewPageSkeleton from "../components/ViewPageSkeleton";
 
@@ -7,8 +7,7 @@ const NoteView = () => {
 
   const databaseID = import.meta.env.VITE_APPWRITE_DATABASE_ID;
   const collectionID = import.meta.env.VITE_APPWRITE_NOTES_COLLECTION;
-  const location = useLocation();
-  const {docID} = location.state || ''; // document ID
+  const {docID} = useParams(); // getting the document id from the url
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [note, setNote] = useState({});
