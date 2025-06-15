@@ -52,11 +52,11 @@ const AuthRoutes = () => {
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/notes' element={<NotesManager />} />
         <Route path='/add-new-note' element={<AddNewNote />} />
-        <Route path='/note-view' element={<NoteView />} />
+        <Route path='/note-view/:docID' element={<NoteView />} />
         <Route path='/todos' element={<TaskManager />} />
         <Route path='/resources' element={<ResourcesManager />} />
         <Route path='/add-new-resource' element={<AddNewResource />} />
-        <Route path='/resource-view' element={<ResourceView />} />
+        <Route path='/resource-view/:docID' element={<ResourceView />} />
       </Route>
     </Routes>
   )
