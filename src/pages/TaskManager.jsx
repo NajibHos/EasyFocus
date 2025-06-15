@@ -138,17 +138,17 @@ const Todo = () => {
           </div>
           <div className="h-auto w-full">
             <form action={addTodo} className="h-auto w-full flex flex-col
-             md:max-2xl:flex-row justify-center md:max-2xl:justify-between
-             items-center gap-4 md:max-2xl:gap-0">
-              <div className="h-auto w-full md:max-2xl:w-[85%]">
+             md:flex-row justify-center md:justify-between
+             items-center gap-4 md:gap-0">
+              <div className="h-auto w-full md:w-[85%]">
                 <input type="text" placeholder="Type here" required
                 className="input w-full text-zinc-200 bg-zinc-900
                 font-medium font-description" name="todo_title" />
               </div>
-              <div className="h-auto w-full md:max-2xl:w-[10%]">
+              <div className="h-auto w-full md:w-[10%]">
                 <button type="submit" className="px-4 py-2 bg-white
                 text-base font-medium font-description rounded
-                text-zinc-950 cursor-pointer w-full md:max-2xl:w-auto" >
+                text-zinc-950 cursor-pointer w-full md:w-auto" >
                   Add
                 </button>
               </div>
