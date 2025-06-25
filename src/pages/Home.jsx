@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="h-auto py-12 w-full flex justify-center items-center">
       <div className="h-full w-[90%] lg:w-[60%] flex flex-col
-       justify-center items-center gap-10 lg:gap-8">
+       justify-center items-center gap-6 lg:gap-5">
         <div className="h-auto w-full flex flex-col justify-center
         items-center gap-4">
           <div className="h-auto w-full text-center">
