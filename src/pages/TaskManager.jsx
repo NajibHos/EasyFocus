@@ -4,6 +4,7 @@ import { ID, Query } from "appwrite";
 import Alert from "../components/Alert";
 import TodoSkeleton from "../components/TodoSkeleton"
 import Todos from "../components/Todos"
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Todo = () => {
 
@@ -188,25 +189,27 @@ const Todo = () => {
         </div>
 
         {/* pagination buttons */}
-        <div
-         className={`${todosLength > todosPerPage ? 'block' : 'hidden'}
-         w-full flex justify-center items-center`}>
-          <div className="join">
-            <button className="join-item btn bg-zinc-950 text-xl
-            text-white"
-             disabled={page === 1}
+        <div className={`${todosLength > todosPerPage ? 'block' : 'hidden'}
+         w-full flex justify-center items-center gap-5`}>
+          <div className="h-auto w-auto">
+            <button className={`px-2 py-2 text-base text-white bg-zinc-900
+             ${page === 1 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
              onClick={() => {selectPageHandler(page - 1)}}>
-              «
+              <ChevronLeft />
             </button>
-            <button className="join-item btn text-base bg-zinc-950
-            text-white font-description font-medium cursor-default">
+          </div>
+          <div className="h-auto w-auto">
+            <button className="px-5 py-2 text-base text-white font-medium
+            font-description bg-zinc-950 cursor-not-allowed">
               {page}
             </button>
-            <button className="join-item btn text-xl text-white
-            bg-zinc-950"
-            disabled={page === Math.ceil(todosLength / todosPerPage)}
-             onClick={() => {selectPageHandler(page + 1)}}>
-              »
+          </div>
+          <div className="h-auto w-auto">
+            <button className={`px-2 py-2 text-base text-white bg-zinc-900
+             ${page === Math.ceil(todosLength / todosPerPage) ?
+             'opacity-50 cursor-not-allowed' : 'cursor-pointer'} `}
+             onClick={() => {selectPageHandler(page + 1)}} >
+              <ChevronRight />
             </button>
           </div>
         </div>
