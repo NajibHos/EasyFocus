@@ -162,32 +162,22 @@ const Todo = () => {
             Tasks History
           </h2>
         </div>
-        <div className={`${todosLength < 1 ? 'block' : 'hidden'}
-         h-[260px] w-full`}>
-            {
-              !loading ? (<Alert height={'h-[260px]'}
-                type='todos' />) : (<TodoSkeleton />)
-            }
-        </div>
-        <div className={`${todosLength < 1 ? 'hidden' : 'block'}
-         h-auto w-full flex justify-center items-center`}>
-          <div className="h-[260px] w-full md:w-[80%] lg:w-[60%]
-           flex flex-col justify-start items-center gap-5">
+        <div className="h-auto w-full flex justify-center items-center">
           {
-            loading ? (<TodoSkeleton />
-            ) : (todos.map((v, i) => {
-              return <Todos
-               key={i}
-               data={v}
-               action={{
-                updateTodoStatus,
-                removeTodo
-              }} />
-            }))
+            loading ? <TodoSkeleton /> : todosLength < 1 ? (<Alert
+            height={'h-[200px]'} type={'todos'}/>) : (<div className="h-auto w-full
+              md:w-[80%] lg:w-[60%] flex flex-col justify-center items-center gap-5">
+                {
+                  todos.map((v, i) => {
+                    return <Todos
+                      key={i}
+                      data={v}
+                      action={{updateTodoStatus, removeTodo}} />
+                  })
+                }
+              </div>)
           }
-          </div>
         </div>
-
         {/* pagination buttons */}
         <div className={`${todosLength > todosPerPage ? 'block' : 'hidden'}
          w-full flex justify-center items-center gap-5`}>
