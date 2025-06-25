@@ -6,9 +6,9 @@ const ResourceCards = ({data, setActiveFilter, removeResource}) => {
   const navigate = useNavigate();
 
   return (
-    <div className="h-[180px] w-full  flex flex-col justify-center
-     items-center gap-6 p-5 rounded-xl bg-zinc-950
-     border border-zinc-700" >
+    <div className="h-[160px] w-full  flex flex-col justify-center
+     items-center gap-5 p-6 border rounded bg-zinc-950
+      border-zinc-900" >
       <div className="h-auto w-full flex flex-col justify-center
        items-center gap-2">
         <div className="h-auto w-full text-left cursor-pointer"
@@ -35,7 +35,7 @@ const ResourceCards = ({data, setActiveFilter, removeResource}) => {
         </div>
       </div>
       <div className="h-auto w-full flex justify-start items-center
-       gap-6">
+       gap-5">
         <div className="h-auto w-auto">
           <button type="button" className="cursor-pointer"
           onClick={() => {
