@@ -7,6 +7,7 @@ import FilterButtonSkeleton from "../components/FilterButtonSkeleton"
 import NoteCards from "../components/NoteCards"
 import CardsSkeleton from "../components/CardsSkeleton"
 import Alert from "../components/Alert"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const Notes = () => {
 
@@ -172,7 +173,7 @@ const Notes = () => {
           </div>
         </div>
         <div className="h-auto w-full flex justify-start items-center
-         gap-8 lg:max-2xl:gap-10 overflow-x-auto">
+         gap-6 overflow-x-auto">
 
           {/* Default All filter button */}
           <button type="button" className={`px-4 py-2 text-base
@@ -188,7 +189,7 @@ const Notes = () => {
             All
           </button>
 
-          {/* filters */}
+          {/* filter buttons */}
           {
             filtersLoading ? (<FilterButtonSkeleton />
             ) : (noteFilters.map((value, i) => {
@@ -201,20 +202,17 @@ const Notes = () => {
             }) )
           }
         </div>
-        <div className={`${notesLength < 1 ? 'block' : 'hidden'}
-         h-auto w-full`}>
+        <div className={`${notesLength < 1 ? 'block' : 'hidden'} h-auto w-full
+          ${loading && 'grid grid-cols-1 lg:grid-cols-3 gap-8'}`}>
           {
-            !loading ? (<Alert height={'h-[400px]'}
-             type={'notes'} />) : ( <CardsSkeleton />)
+            loading ? <CardsSkeleton /> : <Alert height={'h-[400px]'} type={'notes'} />
           }
         </div>
-        <div className={` ${notesLength < 1 ? 'hidden' : 'block'}
-         h-auto w-full `}>
-          <div className="h-auto lg:h-[400px] w-full grid grid-cols-1
-           sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className={` ${notesLength < 1 ? 'hidden' : 'block'} h-auto w-full`}>
+          <div className="h-auto w-full grid grid-cols-1 md:grid-cols-2
+          lg:grid-cols-3 gap-8">
           {
-            loading ? (<CardsSkeleton />
-            ) : (notes.map((value, i) => {
+            loading ? <CardsSkeleton /> : (notes.map((value, i) => {
               return <NoteCards
                key={i}
                data={value}
@@ -224,27 +222,28 @@ const Notes = () => {
           }
           </div>
         </div>
-
         {/* pagination buttons */}
-        <div
-         className={`${notesLength > notesPerPage ? 'block' : 'hidden'}
-         w-full flex justify-center items-center`}>
-          <div className="join">
-            <button className="join-item btn bg-zinc-950 text-xl
-            text-white"
-             disabled={page === 1}
+        <div className={`${notesLength > notesPerPage ? 'block' : 'hidden'}
+         w-full flex justify-center items-center gap-5`}>
+          <div className="h-auto w-auto">
+            <button className={`px-2 py-2 text-base text-white bg-zinc-900
+             ${page === 1 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
              onClick={() => {selectPageHandler(page - 1)}}>
-              «
+              <ChevronLeft/>
             </button>
-            <button className="join-item btn text-base bg-zinc-950
-            text-white font-description font-medium cursor-default">
+          </div>
+          <div className="h-auto w-auto">
+            <button className="px-5 py-2 text-base text-white font-medium
+            font-description bg-zinc-950 cursor-not-allowed">
               {page}
             </button>
-            <button className="join-item btn text-xl text-white
-            bg-zinc-950"
-            disabled={page === Math.ceil(notesLength / notesPerPage)}
-             onClick={() => {selectPageHandler(page + 1)}}>
-              »
+          </div>
+          <div className="h-auto w-auto">
+            <button className={`px-2 py-2 text-base text-white bg-zinc-900
+             ${page === Math.ceil(notesLength / notesPerPage) ?
+             'opacity-50 cursor-not-allowed' : 'cursor-pointer'} `}
+             onClick={() => {selectPageHandler(page + 1)}} >
+              <ChevronRight/>
             </button>
           </div>
         </div>

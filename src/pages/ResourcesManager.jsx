@@ -7,6 +7,7 @@ import FilterButtonSkeleton from "../components/FilterButtonSkeleton"
 import ResourceCards from "../components/ResourceCards"
 import CardsSkeleton from "../components/CardsSkeleton"
 import Alert from "../components/Alert"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const ResourcesManager = () => {
 
@@ -170,7 +171,7 @@ const ResourcesManager = () => {
           </div>
         </div>
         <div className="h-auto w-full flex justify-start items-center
-         gap-8 lg:max-2xl:gap-10 overflow-x-auto">
+         gap-6 overflow-x-auto">
 
           {/* Default All filter button */}
           <button type="button" className={`px-4 py-2 text-base
@@ -199,20 +200,17 @@ const ResourcesManager = () => {
             }) )
           }
         </div>
-        <div className={`${resourcesLength < 1 ? 'block' : 'hidden'}
-         h-auto w-full`}>
+        <div className={`${resourcesLength < 1 ? 'block' : 'hidden'} h-auto w-full
+          ${loading && 'grid grid-cols-1 lg:grid-cols-3 gap-8'}`}>
           {
-            !loading ? (<Alert height={'h-[400px]'}
-             type={'notes'} />) : ( <CardsSkeleton />)
+            loading ? <CardsSkeleton /> : <Alert height={'h-[400px]'} type={'notes'} />
           }
         </div>
-        <div className={` ${resourcesLength < 1 ? 'hidden' : 'block'}
-         h-auto w-full `}>
-          <div className="h-auto lg:h-[400px] w-full grid grid-cols-1
-           sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className={` ${resourcesLength < 1 ? 'hidden' : 'block'} h-auto w-full `}>
+          <div className={`h-auto w-full grid grid-cols-1 md:grid-cols-2
+          lg:grid-cols-3 gap-8`}>
           {
-            loading ? (<CardsSkeleton />
-            ) : (resources.map((value, i) => {
+            loading ? <CardsSkeleton /> : (resources.map((value, i) => {
               return <ResourceCards
                key={i}
                data={value}
@@ -222,28 +220,28 @@ const ResourcesManager = () => {
           }
           </div>
         </div>
-
         {/* pagination buttons */}
-        <div
-         className={
-         `${resourcesLength > resourcesPerPage ? 'block' : 'hidden'}
-         w-full flex justify-center items-center`}>
-          <div className="join">
-            <button className="join-item btn bg-zinc-950 text-xl
-            text-white"
-             disabled={page === 1}
+        <div className={`${resourcesLength > resourcesPerPage ? 'block' : 'hidden'}
+         w-full flex justify-center items-center gap-5`}>
+          <div className="h-auto w-auto">
+            <button className={`px-2 py-2 text-base text-white bg-zinc-900
+             ${page === 1 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
              onClick={() => {selectPageHandler(page - 1)}}>
-              «
+              <ChevronLeft />
             </button>
-            <button className="join-item btn text-base bg-zinc-950
-            text-white font-description font-medium cursor-default">
+          </div>
+          <div className="h-auto w-auto">
+            <button className="px-5 py-2 text-base text-white font-medium
+            font-description bg-zinc-950 cursor-not-allowed">
               {page}
             </button>
-            <button className="join-item btn text-xl text-white
-            bg-zinc-950"
-            disabled={page === Math.ceil(resourcesLength / 6)}
-             onClick={() => {selectPageHandler(page + 1)}}>
-              »
+          </div>
+          <div className="h-auto w-auto">
+            <button className={`px-2 py-2 text-base text-white bg-zinc-900
+             ${page === Math.ceil(resourcesLength / resourcesPerPage) ?
+             'opacity-50 cursor-not-allowed' : 'cursor-pointer'} `}
+             onClick={() => {selectPageHandler(page + 1)}} >
+              <ChevronRight />
             </button>
           </div>
         </div>
