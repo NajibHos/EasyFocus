@@ -146,7 +146,7 @@ const ResourcesManager = () => {
       <div className="h-full w-[90%] flex flex-col justify-center
        items-center gap-16 lg:max-2xl:gap-12">
         <div className="h-auto w-full text-center">
-          <h2 className="text-2xl lg:text-xl font-medium
+          <h2 className="text-2xl font-medium
            font-description text-zinc-200">
             Study Resources
           </h2>
@@ -171,7 +171,7 @@ const ResourcesManager = () => {
         </div>
         <div className="h-auto w-full flex justify-start items-center
          gap-8 lg:max-2xl:gap-10 overflow-x-auto">
-          
+
           {/* Default All filter button */}
           <button type="button" className={`px-4 py-2 text-base
            font-medium font-description rounded cursor-pointer

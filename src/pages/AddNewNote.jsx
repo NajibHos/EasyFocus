@@ -89,7 +89,7 @@ const AddNewNote = () => {
         <div className="h-auto w-full flex flex-col justify-center
          items-center gap-4">
           <div className="h-auto w-full text-center">
-            <h2 className="text-2xl lg:text-xl font-medium
+            <h2 className="text-2xl font-medium
              font-description text-white">
               Add New Note
             </h2>

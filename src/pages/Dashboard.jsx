@@ -14,7 +14,7 @@ const Dashboard = () => {
       <div className="h-full w-[90%] flex flex-col justify-center
        items-center gap-16 lg:max-2xl:gap-12">
         <div className="h-auto w-full text-center">
-          <h2 className="text-2xl lg:text-xl font-medium
+          <h2 className="text-2xl font-medium
            font-description text-zinc-200">
             Dashboard
           </h2>

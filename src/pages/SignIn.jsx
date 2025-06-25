@@ -33,7 +33,7 @@ const SignIn = () => {
        items-center gap-16 lg:max-2xl:gap-12">
         <div className="h-auto w-full text-center">
           <h2 className="font-medium font-description text-zinc-200
-           text-2xl lg:text-xl">
+           text-2xl">
             Sign In
           </h2>
         </div>
