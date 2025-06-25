@@ -37,8 +37,8 @@ const SignIn = () => {
             Sign In
           </h2>
         </div>
-        <div className="h-auto w-full md:max-lg:w-[60%]
-         lg:max-2xl:w-[60%]">
+        <div className="h-auto w-full md:w-[70%]
+         lg:w-[50%]">
           <form action={signIn}
           className="h-auto w-full flex flex-col justify-center
            items-center gap-8">
