@@ -1,17 +1,16 @@
 const Footer = () => {
   return (
-    <div className="h-[10vh] w-full flex justify-center
-     items-center">
-          <div className="h-auto w-full text-center">
-            <h2 className="text-base font-medium
-             text-zinc-300 font-description">
-              WebApp Developed by
-              <a href="http://portfolio-web-app-weld.vercel.app"
-              target="_blank" className="underline hover:text-white ml-2">
-              Najib Hossain
-              </a>
-            </h2>
-          </div>
+    <div className="h-[10vh] w-full flex justify-center items-center dark:bg-dark-bg">
+      <div className="h-auto w-full text-center">
+        <h2 className="text-base font-medium font-description text-zinc-800
+          dark:text-zinc-300 ">
+            WebApp Developed by
+            <a href="https://najibdev.vercel.app" target="_blank"
+              className="underline text-zinc-800 dark:hover:text-white ml-2">
+                Najib Hossain
+            </a>
+        </h2>
+      </div>
     </div>
   )
 }
