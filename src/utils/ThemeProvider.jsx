@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 const ThemeContext = createContext();
 
-const ThemeProvider = ({ children }) => {
+export const ThemeProvider = ({ children }) => {
 
   // getting current theme or light theme by default
   const [theme, setTheme] = useState(() => {
@@ -37,5 +37,3 @@ const ThemeProvider = ({ children }) => {
 
 // custom hook for consuming theme context
 export const useTheme = () => useContext(ThemeContext);
-
-export default ThemeProvider
