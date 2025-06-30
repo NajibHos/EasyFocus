@@ -33,7 +33,7 @@ const Header = () => {
               {
                 theme === 'dark' && <button type="button"
                 className="text-lg px-4 py-2  rounded-xl cursor-pointer
-                bg-transparent text-white hover:bg-stone-800"
+                bg-transparent text-white hover:bg-zinc-800"
                 onClick={toggleTheme} >
                   <Sun />
                 </button>
@@ -41,52 +41,49 @@ const Header = () => {
 
               {
                 theme === 'light' && <button type="button"
-                className="text-lg px-4 py-2  rounded-xl cursor-pointer
-                bg-transparent text-zinc-900 hover:text-white hover:bg-stone-800"
+                className="text-lg px-4 py-2  rounded-xl cursor-pointer bg-transparent
+                text-zinc-900 hover:text-white hover:bg-zinc-600"
                 onClick={toggleTheme} >
                   <Moon />
                 </button>
               }
 
-              <a href="https://github.com/NajibHos/EasyFocus"
-               target="_blank"
-               className="text-lg text-zinc-200 cursor-pointer
-               hover:text-white px-4 py-2 bg-transparent
-               hover:bg-zinc-800 rounded-xl">
-                <Github  />
+              <a href="https://github.com/NajibHos/EasyFocus" target="_blank">
+                <button className="text-lg px-4 py-2 cursor-pointer text-zinc-900
+                  hover:text-white bg-transparent hover:bg-zinc-600 dark:text-white
+                  dark:hover:bg-zinc-800 rounded-xl">
+                    <Github  />
+                </button>
               </a>
 
-              {/* 2 different buttons for smaller and larger screens */}
+              {/* smaller screens */}
               <button type="button" className="block md:max-2xl:hidden
-               text-lg text-zinc-200 cursor-pointer
-               hover:text-white px-4 py-2 bg-transparent
-               hover:bg-zinc-800 rounded-xl"
-               onClick={() => {
-                navigate('/sign-in')
-               }} >
-                <LogIn />
+                px-4 py-2 text-lg rounded-xl cursor-pointer text-zinc-900
+                hover:text-white  bg-transparent hover:bg-zinc-600
+                dark:text-white dark:hover:bg-zinc-800"
+                onClick={() => navigate('/sign-in')} >
+                  <LogIn />
               </button>
 
+              {/* larger screens */}
               <button type="button" className="hidden md:max-2xl:block
-               text-lg text-zinc-200 font-medium cursor-pointer
-               font-description
-               hover:text-white px-4 py-2 bg-transparent
-               hover:bg-zinc-800 rounded-xl"
-               onClick={() => {
-                navigate('/sign-in')
-               }} >
-                Sign in
+                px-4 py-2 text-lg font-description font-medium rounded-xl cursor-pointer
+                text-zinc-900 hover:text-white bg-transparent hover:bg-zinc-600
+                dark:text-white dark:hover:bg-zinc-800"
+                onClick={() => navigate('/sign-in')} >
+                  Sign in
               </button>
+
               </>
 
             ) : (
 
               <>
 
-                {
+              {
                 theme === 'dark' && <button type="button"
                 className="text-lg px-4 py-2  rounded-xl cursor-pointer
-                bg-transparent text-white hover:bg-stone-800"
+                bg-transparent text-white hover:bg-zinc-800"
                 onClick={toggleTheme} >
                   <Sun />
                 </button>
@@ -94,8 +91,8 @@ const Header = () => {
 
               {
                 theme === 'light' && <button type="button"
-                className="text-lg px-4 py-2  rounded-xl cursor-pointer
-                bg-transparent text-zinc-900 hover:text-white hover:bg-stone-800"
+                className="text-lg px-4 py-2  rounded-xl cursor-pointer bg-transparent
+                text-zinc-900 hover:text-white hover:bg-zinc-600"
                 onClick={toggleTheme} >
                   <Moon />
                 </button>
@@ -115,32 +112,30 @@ const Header = () => {
 
                 <button type="button"
                 className="hidden md:max-2xl:block
-                text-lg text-zinc-200
-                font-medium cursor-pointer font-description
-                hover:text-white px-4 py-2 bg-transparent
-                hover:bg-zinc-800 rounded-xl"
+                px-4 py-2 text-lg font-description font-medium rounded-xl cursor-pointer
+                text-zinc-900 hover:text-white bg-transparent hover:bg-zinc-600
+                dark:text-white dark:hover:bg-zinc-800"
                 onClick={() => {
                   navigate('/dashboard')
                 }}>
                   Dashboard
                 </button>
 
-                <button type="button"
-                className="block md:max-2xl:hidden
-                text-lg text-zinc-200 cursor-pointer
-                hover:text-white px-4 py-2 bg-transparent
-                hover:bg-zinc-800 rounded-xl"
-                onClick={logOutUser} >
-                  <LogOut />
+                <button type="button" className="block md:max-2xl:hidden
+                  px-4 py-2 text-lg rounded-xl cursor-pointer text-zinc-900
+                  bg-transparent hover:text-white hover:bg-zinc-600
+                  dark:text-white dark:hover:bg-zinc-800"
+                  onClick={logOutUser} >
+                    <LogOut />
                 </button>
 
                 <button type="button"
-                className="hidden md:max-2xl:block
-                text-lg text-zinc-200 cursor-pointer font-description
-                hover:text-white px-4 py-2 bg-transparent
-                hover:bg-zinc-800 rounded-xl font-medium"
-                onClick={logOutUser} >
-                  Sign Out
+                  className="hidden md:max-2xl:block
+                  px-4 py-2 text-lg font-description font-medium rounded-xl
+                  cursor-pointer text-zinc-900 bg-transparent hover:text-white
+                  hover:bg-zinc-600 dark:text-white dark:hover:bg-zinc-800"
+                  onClick={logOutUser} >
+                    Sign Out
                 </button>
               </>
 
