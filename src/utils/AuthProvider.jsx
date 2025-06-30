@@ -5,7 +5,6 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
 
-  const [loading, setLoading] = useState(true); // Loading state
   const [user, setUser] = useState(null); // Store user details
   const [userName, setUserName] = useState(null); // Store user Name
 
@@ -15,7 +14,6 @@ export const AuthProvider = ({ children }) => {
 
   // Check user session
   const checkUserStatus = async () => {
-    setLoading(true);
 
     try {
       const currentUser = await account.get();
@@ -24,14 +22,11 @@ export const AuthProvider = ({ children }) => {
 
     } catch (error) {
       console.error('User Error: ' + error.message);
-    } finally {
-      setLoading(false);
     }
   }
 
   // Login function
   const logInUser = async (userInfo) => {
-    setLoading(true);
 
     try {
       // login session
@@ -46,8 +41,6 @@ export const AuthProvider = ({ children }) => {
 
     } catch (error) {
       console.error("Login error:", error.message);
-    } finally {
-      setLoading(false);
     }
   }
 
@@ -69,7 +62,6 @@ export const AuthProvider = ({ children }) => {
     userName,
     logInUser,
     logOutUser,
-    loading
   }
 
   return (
@@ -82,4 +74,3 @@ export const AuthProvider = ({ children }) => {
 
 // Custom Hook for consuming AuthContext
 export const useAuth = () => useContext(AuthContext);
-export default AuthContext;
