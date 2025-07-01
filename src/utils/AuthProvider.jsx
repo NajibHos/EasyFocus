@@ -5,6 +5,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
 
+  const [authStatus, setAuthStatus] = useState(''); // store authentication status
   const [user, setUser] = useState(null); // Store user details
   const [userName, setUserName] = useState(null); // Store user Name
 
@@ -36,10 +37,12 @@ export const AuthProvider = ({ children }) => {
 
       // get user and username
       const currentUser = await account.get();
+      setAuthStatus('successful'); // set authentication status to successful
       setUser(currentUser);
       setUserName(currentUser.name);
 
     } catch (error) {
+      setAuthStatus('failed'); // set authentication status to failed
       console.error("Login error:", error.message);
     }
   }
@@ -58,10 +61,11 @@ export const AuthProvider = ({ children }) => {
   // logout()
 
   const contextData =  {
+    authStatus,
     user,
     userName,
     logInUser,
-    logOutUser,
+    logOutUser
   }
 
   return (
