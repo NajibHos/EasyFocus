@@ -120,20 +120,21 @@ const Todo = () => {
   }, [page]) // page is the dependency here
 
   return (
-    <div className="h-auto py-12 w-full flex justify-center items-center">
+    <div className="h-auto py-12 w-full flex justify-center items-center
+     dark:bg-dark-bg">
       <div className="h-full w-[90%] flex flex-col justify-center
        items-center gap-16 lg:max-2xl:gap-12">
         <div className="h-auto w-full text-center">
-          <h2 className="text-2xl font-medium
-           font-description text-zinc-200">
+          <h2 className="text-2xl font-medium font-description text-zinc-900
+           dark:text-zinc-200">
             Todo
           </h2>
         </div>
         <div className="h-auto w-full md:w-[80%] lg:max-2xl:w-[60%]
          flex flex-col gap-2">
           <div className="h-auto w-full text-left">
-            <h2 className="text-base font-medium font-description
-            text-zinc-200">
+            <h2 className="text-base font-medium font-description text-zinc-800
+            dark:text-zinc-200">
               Add Tasks
             </h2>
           </div>
@@ -143,30 +144,31 @@ const Todo = () => {
              items-center gap-4 md:gap-0">
               <div className="h-auto w-full md:w-[85%]">
                 <input type="text" placeholder="Type here" required
-                className="input w-full text-zinc-200 bg-zinc-900
-                font-medium font-description" name="todo_title" />
+                 className="input w-full font-medium font-description
+                 border border-zinc-400 bg-transparent text-zinc-900
+                 dark:text-zinc-200" name="todo_title" />
               </div>
               <div className="h-auto w-full md:w-[10%]">
-                <button type="submit" className="px-4 py-2 bg-white
-                text-base font-medium font-description rounded
-                text-zinc-950 cursor-pointer w-full md:w-auto" >
+                <button type="submit" className="px-4 py-2 text-base font-medium
+                 font-description rounded cursor-pointer w-full md:w-auto
+                 bg-zinc-900 text-white dark:bg-white dark:text-zinc-900" >
                   Add
                 </button>
               </div>
             </form>
           </div>
         </div>
-        <div className="h-auto w-full text-center">
+        <div className="h-auto w-full md:w-[80%] lg:w-[60%] text-left">
           <h2 className="text-base font-medium font-description
-            text-zinc-200">
+            text-zinc-900 dark:text-zinc-200">
             Tasks History
           </h2>
         </div>
         <div className="h-auto w-full flex justify-center items-center">
           {
             loading ? <TodoSkeleton /> : todosLength < 1 ? (<Alert
-            height={'h-[200px]'} type={'todos'}/>) : (<div className="h-auto w-full
-              md:w-[80%] lg:w-[60%] flex flex-col justify-center items-center gap-5">
+            height={'h-[200px]'} type={'todos'}/>) : (<div className="h-[270px] w-full
+              md:w-[80%] lg:w-[60%] flex flex-col justify-start items-center gap-5">
                 {
                   todos.map((v, i) => {
                     return <Todos
@@ -182,20 +184,23 @@ const Todo = () => {
         <div className={`${todosLength > todosPerPage ? 'block' : 'hidden'}
          w-full flex justify-center items-center gap-5`}>
           <div className="h-auto w-auto">
-            <button className={`px-2 py-2 text-base text-white bg-zinc-900
+            <button className={`px-2 py-2 text-base text-white bg-zinc-950
+             dark:text-zinc-900 dark:bg-white rounded
              ${page === 1 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
              onClick={() => {selectPageHandler(page - 1)}}>
               <ChevronLeft />
             </button>
           </div>
           <div className="h-auto w-auto">
-            <button className="px-5 py-2 text-base text-white font-medium
-            font-description bg-zinc-950 cursor-not-allowed">
+            <button className="px-5 py-2 text-base font-medium font-description
+             text-white bg-zinc-950 dark:text-zinc-900 dark:bg-white
+             rounded cursor-not-allowed">
               {page}
             </button>
           </div>
           <div className="h-auto w-auto">
-            <button className={`px-2 py-2 text-base text-white bg-zinc-900
+            <button className={`px-2 py-2 text-base text-white bg-zinc-950
+             dark:text-zinc-900 dark:bg-white rounded
              ${page === Math.ceil(todosLength / todosPerPage) ?
              'opacity-50 cursor-not-allowed' : 'cursor-pointer'} `}
              onClick={() => {selectPageHandler(page + 1)}} >
