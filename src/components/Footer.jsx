@@ -6,7 +6,8 @@ const Footer = () => {
           dark:text-zinc-300 ">
             WebApp Developed by
             <a href="https://najibdev.vercel.app" target="_blank"
-              className="underline text-zinc-800 dark:hover:text-white ml-2">
+              className="underline text-zinc-800 dark:text-zinc-300
+              dark:hover:text-white ml-2">
                 Najib Hossain
             </a>
         </h2>
