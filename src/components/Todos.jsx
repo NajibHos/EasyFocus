@@ -8,7 +8,7 @@ const Todos = ({data, action}) => {
 
   return (
     <div className="h-[50px] w-full flex justify-between items-center
-     px-4 border border-zinc-700 rounded">
+     px-4 border border-zinc-400 rounded bg-transparent">
       <div className="h-auto w-auto">
         {/* toggling between complete and incomplete task */}
         <div className={`h-auto w-auto
@@ -26,14 +26,14 @@ const Todos = ({data, action}) => {
             onClick={() => {
               updateTodoStatus(data.$id, 'completed'); //id, status
             }} >
-              <Circle size={26} className="text-zinc-200" />
+              <Circle size={26} className="text-zinc-900 dark:text-zinc-200" />
             </button>
         </div>
       </div>
       <div className="h-auto w-[80%] lg:w-[85%] text-left">
         <h2 className={`text-base font-medium font-description truncate
         ${data.status === 'completed' ? ('line-through text-green-600'
-        ) : ('text-zinc-200')}  `}>
+        ) : ('text-zinc-900 dark:text-zinc-200')}  `}>
           {data.title}
         </h2>
       </div>
