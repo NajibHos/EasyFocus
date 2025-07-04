@@ -167,7 +167,7 @@ const Todo = () => {
         <div className="h-auto w-full flex justify-center items-center">
           {
             loading ? <TodoSkeleton /> : todosLength < 1 ? (<Alert
-            height={'h-[200px]'} type={'todos'}/>) : (<div className="h-[270px] w-full
+            height={'h-[200px]'} />) : (<div className="h-[270px] w-full
               md:w-[80%] lg:w-[60%] flex flex-col justify-start items-center gap-5">
                 {
                   todos.map((v, i) => {
