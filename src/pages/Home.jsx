@@ -79,13 +79,8 @@ const Home = () => {
               <li>
                 <h2 className="text-base font-description font-medium text-zinc-800
                 dark:text-zinc-200">
-                  Minimal, modern UI
-                </h2>
-              </li>
-              <li>
-                <h2 className="text-base font-description font-medium text-zinc-800
-                dark:text-zinc-200">
-                  Fully responsive design
+                  Theme toggle, protected route, skeleton loading, simple UI, and
+                  responsive design
                 </h2>
               </li>
             </ul>
