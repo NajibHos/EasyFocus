@@ -18,8 +18,8 @@ const Notes = () => {
   const [filtersLoading, setFiltersLoading] = useState(false);
   const [noteFilters, setNoteFilters] = useState([]);
   const [activeFilter, setActiveFilter] = useState('All');
-  const [notes, setNotes] = useState([]);
   const [notesLength, setNotesLength] = useState(0);
+  const [notes, setNotes] = useState([]);
   const navigate = useNavigate();
   // pagination variables
   const [page, setPage] = useState(1);
@@ -65,8 +65,8 @@ const Notes = () => {
       )
 
       // updating notes and notesLength state variable
-      setNotes(data.documents);
       setNotesLength(data.total); // collecting notes length
+      setNotes(data.documents);
     } catch (error) {
       console.error('Fetching error ' + error.message);
     } finally {
@@ -91,8 +91,8 @@ const Notes = () => {
       )
 
       // updating notes and notesLength state variable
-      setNotes(data.documents);
       setNotesLength(data.total); // collecting notes length
+      setNotes(data.documents);
     } catch (error) {
       console.error("Fetching error: " + error.message)
     } finally {
@@ -145,29 +145,28 @@ const Notes = () => {
 
   return (
     <div className="h-auto py-12 w-full flex justify-center
-     items-center">
+     items-center dark:bg-dark-bg">
       <div className="h-full w-[90%] flex flex-col justify-center
        items-center gap-16 lg:max-2xl:gap-12">
         <div className="h-auto w-full text-center">
-          <h2 className="text-2xl font-medium
-           font-description text-zinc-200">
+          <h2 className="text-2xl font-medium font-description
+           text-zinc-900 dark:text-zinc-200">
             Notes
           </h2>
         </div>
         <div className="h-auto w-full flex justify-between items-center">
           <div className="h-auto w-auto text-left">
-            <h2 className="text-base font-medium
-             font-description text-zinc-200">
+            <h2 className="text-lg font-medium font-description
+             text-zinc-700 dark:text-zinc-200">
               Notes History
             </h2>
           </div>
           <div className="h-auto w-auto text-right">
-            <button type="button" className="px-4 py-2 bg-white
-            text-base font-medium font-description rounded
-            text-zinc-950 cursor-pointer"
-              onClick={() => {
-                navigate('/add-new-note');
-              }}  >
+            <button type="button" className="px-4 py-2
+             text-base font-medium font-description rounded cursor-pointer
+             text-white bg-stone-900 dark:text-zinc-900 dark:bg-white"
+             onClick={() => navigate('/add-new-note')}
+            >
               Add New Note
             </button>
           </div>
@@ -177,10 +176,12 @@ const Notes = () => {
 
           {/* Default All filter button */}
           <button type="button" className={`px-4 py-2 text-base
-           font-medium font-description rounded cursor-pointer
+           font-medium font-description cursor-pointer
+           border rounded border-stone-300 dark:border-zinc-900
            ${filtersLoading ? 'hidden' : 'block'}
-           ${activeFilter === 'All' ? ('bg-white text-zinc-950'
-           ) : ('bg-zinc-950 text-white')} `}
+           ${activeFilter === 'All' ?
+            ('bg-stone-900 text-white dark:bg-white dark:text-zinc-900'
+            ) : ('bg-transparent text-zinc-900 dark:bg-zinc-950 dark:text-white')} `}
             onClick={() => {
               setActiveFilter('All');
               setPage(1); // reset page
@@ -202,48 +203,49 @@ const Notes = () => {
             }) )
           }
         </div>
-        <div className={`${notesLength < 1 ? 'block' : 'hidden'} h-auto w-full
-          ${loading && 'grid grid-cols-1 lg:grid-cols-3 gap-8'}`}>
+        <div className="h-auto w-full">
           {
-            loading ? <CardsSkeleton /> : <Alert height={'h-[400px]'} type={'notes'} />
+            loading ? <CardsSkeleton /> : notesLength < 1 ? (<Alert
+            height={'h-[400px]'} />) : (<div className="h-auto w-full grid
+              grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                  notes.map((value, i) => {
+                    return <NoteCards
+                    key={i}
+                    data={value}
+                    setActiveFilter={setActiveFilter}
+                    removeNote={removeNote}
+                  />
+                  })
+                }
+            </div>)
           }
-        </div>
-        <div className={` ${notesLength < 1 ? 'hidden' : 'block'} h-auto w-full`}>
-          <div className="h-auto w-full grid grid-cols-1 md:grid-cols-2
-          lg:grid-cols-3 gap-8">
-          {
-            loading ? <CardsSkeleton /> : (notes.map((value, i) => {
-              return <NoteCards
-               key={i}
-               data={value}
-               setActiveFilter={setActiveFilter}
-               removeNote={removeNote} />
-            }))
-          }
-          </div>
         </div>
         {/* pagination buttons */}
         <div className={`${notesLength > notesPerPage ? 'block' : 'hidden'}
          w-full flex justify-center items-center gap-5`}>
           <div className="h-auto w-auto">
-            <button className={`px-2 py-2 text-base text-white bg-zinc-900
+            <button className={`px-2 py-2 text-base text-white bg-zinc-950
+             dark:text-zinc-900 dark:bg-white rounded
              ${page === 1 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
              onClick={() => {selectPageHandler(page - 1)}}>
-              <ChevronLeft/>
+              <ChevronLeft />
             </button>
           </div>
           <div className="h-auto w-auto">
-            <button className="px-5 py-2 text-base text-white font-medium
-            font-description bg-zinc-950 cursor-not-allowed">
+            <button className="px-5 py-2 text-base font-medium font-description
+             text-white bg-zinc-950 dark:text-zinc-900 dark:bg-white
+             rounded cursor-not-allowed">
               {page}
             </button>
           </div>
           <div className="h-auto w-auto">
-            <button className={`px-2 py-2 text-base text-white bg-zinc-900
+            <button className={`px-2 py-2 text-base text-white bg-zinc-950
+             dark:text-zinc-900 dark:bg-white rounded
              ${page === Math.ceil(notesLength / notesPerPage) ?
              'opacity-50 cursor-not-allowed' : 'cursor-pointer'} `}
              onClick={() => {selectPageHandler(page + 1)}} >
-              <ChevronRight/>
+              <ChevronRight />
             </button>
           </div>
         </div>
