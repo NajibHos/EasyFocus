@@ -7,8 +7,8 @@ const NoteCards = ({data, removeNote, setActiveFilter}) => {
 
   return (
     <div className="h-[160px] w-full  flex flex-col justify-center
-     items-center gap-5 p-6 border rounded bg-zinc-950
-     border-zinc-900" >
+     items-center gap-5 p-6 border rounded bg-transparent dark:bg-zinc-950
+     border-stone-300 dark:border-zinc-900" >
       <div className="h-auto w-full flex flex-col justify-center
        items-center gap-2">
         <div className="h-auto w-full text-left cursor-pointer"
@@ -18,7 +18,7 @@ const NoteCards = ({data, removeNote, setActiveFilter}) => {
           );
         }} >
           <h2 className="text-lg font-medium font-description
-          text-zinc-200 truncate hover:underline">
+           text-zinc-900 dark:text-zinc-200 truncate hover:underline">
             {data.title}
           </h2>
         </div>
@@ -29,7 +29,7 @@ const NoteCards = ({data, removeNote, setActiveFilter}) => {
           );
         }} >
           <h2 className="text-base font-medium font-description
-          text-zinc-400 truncate">
+           text-zinc-700 dark:text-zinc-400 truncate">
             {data.description}
           </h2>
         </div>
@@ -38,21 +38,23 @@ const NoteCards = ({data, removeNote, setActiveFilter}) => {
        gap-5">
         <div className="h-auto w-auto">
           <button type="button" className="cursor-pointer"
-          onClick={() => {
-            navigate(
-              `/note-view/${data.$id}`, // dynamic route with document id
-            );
-          }} >
-            <ExternalLink size={22} className="text-blue-600" />
+            onClick={() => {
+              navigate(
+                `/note-view/${data.$id}`, // dynamic route with document id
+              );
+            }}
+          >
+            <ExternalLink size={24} className="text-blue-600 hover:text-blue-700" />
           </button>
         </div>
         <div className="h-auto w-auto">
           <button type="button" className="cursor-pointer"
-          onClick={() => {
-            removeNote(data.$id, data.category); // removing current note
-            setActiveFilter(data.category); // updating note category
-          }} >
-            <Trash2 size={22} className="text-red-600" />
+            onClick={() => {
+              removeNote(data.$id, data.category); // removing current note
+              setActiveFilter(data.category); // updating note category
+            }}
+          >
+            <Trash2 size={22} className="text-red-600 hover:text-red-700" />
           </button>
         </div>
       </div>
