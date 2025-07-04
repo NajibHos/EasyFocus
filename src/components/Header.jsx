@@ -67,7 +67,8 @@ const Header = () => {
 
               {/* larger screens */}
               <button type="button" className="hidden md:max-2xl:block
-                px-4 py-2 text-lg font-description font-medium rounded-xl cursor-pointer
+                px-4 py-2 text-lg font-description font-medium rounded-xl
+                cursor-pointer
                 text-zinc-900 hover:text-white bg-transparent hover:bg-zinc-600
                 dark:text-white dark:hover:bg-zinc-800"
                 onClick={() => navigate('/sign-in')} >
@@ -101,9 +102,9 @@ const Header = () => {
                 {/* 2 different buttons for smaller and larger screens */}
                 <button type="button"
                 className="block md:max-2xl:hidden
-                text-lg text-zinc-200 cursor-pointer
-                hover:text-white px-4 py-2 bg-transparent
-                hover:bg-zinc-800 rounded-xl"
+                px-4 py-2 text-lg  cursor-pointer rounded-xl
+                text-zinc-900 bg-transparent hover:bg-zinc-600 hover:text-white
+                dark:text-white dark:hover:bg-zinc-800"
                 onClick={() => {
                   navigate('/dashboard')
                 }} >
@@ -112,7 +113,8 @@ const Header = () => {
 
                 <button type="button"
                 className="hidden md:max-2xl:block
-                px-4 py-2 text-lg font-description font-medium rounded-xl cursor-pointer
+                px-4 py-2 text-lg font-description font-medium rounded-xl
+                cursor-pointer
                 text-zinc-900 hover:text-white bg-transparent hover:bg-zinc-600
                 dark:text-white dark:hover:bg-zinc-800"
                 onClick={() => {
