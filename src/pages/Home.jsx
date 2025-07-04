@@ -99,7 +99,8 @@ const Home = () => {
               Dashboard
           </button>
           <button type="button" className={`text-base font-medium font-description
-            px-8 py-2 text-zinc-950 bg-white rounded cursor-pointer
+            px-8 py-2 rounded cursor-pointer text-white bg-stone-900
+            dark:text-zinc-950 dark:bg-white
             ${user ? 'hidden' : 'block'}`}
             onClick={() => navigate('/sign-in')} >
               Visit App
