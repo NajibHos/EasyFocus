@@ -28,7 +28,8 @@ const SignIn = () => {
   }
 
   return (
-    <div className="h-[90vh] w-full flex justify-center items-center dark:bg-dark-bg">
+    <div className="h-auto py-14 lg:h-[90vh] lg:py-0 w-full flex justify-center
+     items-center dark:bg-dark-bg">
       <div className="h-full w-[90%] flex flex-col justify-center
        items-center gap-16 lg:max-2xl:gap-12">
         <div className="h-auto w-full flex flex-col justify-center items-center
