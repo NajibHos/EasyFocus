@@ -63,13 +63,14 @@ const ResourceView = () => {
   }
 
   return (
-    <div className="h-auto py-12 w-full flex justify-center items-center">
+    <div className="h-auto py-12 w-full flex justify-center items-center
+    dark:bg-dark-bg">
       <div className="h-full w-[90%] flex flex-col justify-center
        items-center gap-16 lg:gap-12">
         <div className="h-auto w-full text-left">
-          <button type="button" className="px-4 py-2 bg-white
-            text-base font-medium font-description rounded
-            text-zinc-950 cursor-pointer"
+          <button type="button" className="px-4 py-2
+            text-base font-medium font-description rounded cursor-pointer
+            text-white bg-stone-900 dark:text-zinc-900 dark:bg-white"
             onClick={() => {
               navigate('/resources')
             }} >
@@ -80,13 +81,13 @@ const ResourceView = () => {
          items-center gap-3">
           <div className="h-auto w-full text-left">
             <h2 className="text-base font-description font-medium
-            text-zinc-400">
+            text-zinc-700 dark:text-zinc-400">
               Title
             </h2>
           </div>
           <div className="h-auto w-full text-left">
             <h2 className="text-lg font-description font-medium
-            text-zinc-200">
+            text-zinc-900 dark:text-zinc-200">
               {data.title}
             </h2>
           </div>
@@ -95,7 +96,22 @@ const ResourceView = () => {
          items-center gap-3">
           <div className="h-auto w-full text-left">
             <h2 className="text-base font-description font-medium
-            text-zinc-400">
+            text-zinc-700 dark:text-zinc-400">
+              Description
+            </h2>
+          </div>
+          <div className="h-auto w-full text-left">
+            <h2 className="text-lg font-description font-medium
+            text-zinc-900 dark:text-zinc-200">
+              {data.description || 'Not available'}
+            </h2>
+          </div>
+        </div>
+        <div className="h-auto w-full flex flex-col justify-center
+         items-center gap-3">
+          <div className="h-auto w-full text-left">
+            <h2 className="text-base font-description font-medium
+            text-zinc-700 dark:text-zinc-400">
               Link
             </h2>
           </div>
@@ -112,13 +128,13 @@ const ResourceView = () => {
            flex-col justify-center items-center gap-3">
             <div className="h-auto w-full text-left">
             <h2 className="text-base font-description font-medium
-            text-zinc-400">
+            text-zinc-700 dark:text-zinc-400">
               Category
             </h2>
           </div>
           <div className="h-auto w-full text-left">
             <h2 className="text-lg font-description font-medium
-            text-zinc-200">
+            text-zinc-900 dark:text-zinc-200">
               {data.category}
             </h2>
           </div>
@@ -127,7 +143,7 @@ const ResourceView = () => {
            flex-col justify-center items-center gap-3">
             <div className="h-auto w-full text-center">
             <h2 className="text-base font-description font-medium
-            text-zinc-400">
+            text-zinc-700 dark:text-zinc-400">
               Status
             </h2>
           </div>
@@ -143,7 +159,7 @@ const ResourceView = () => {
            flex-col justify-center items-center gap-3 mt-5 lg:mt-0">
             <div className="h-auto w-full text-left lg:text-right">
             <h2 className="text-base font-description font-medium
-            text-zinc-400">
+            text-zinc-700 dark:text-zinc-400">
               Action
             </h2>
           </div>
@@ -173,21 +189,6 @@ const ResourceView = () => {
           </div>
           </div>
         </div>
-        <div className="h-auto w-full flex flex-col justify-center
-         items-center gap-3">
-          <div className="h-auto w-full text-left">
-            <h2 className="text-base font-description font-medium
-            text-zinc-400">
-              Description
-            </h2>
-          </div>
-          <div className="h-auto w-full text-left">
-            <h2 className="text-lg font-description font-medium
-            text-zinc-200">
-              {data.description}
-            </h2>
-          </div>
-         </div>
       </div>
     </div>
   )
