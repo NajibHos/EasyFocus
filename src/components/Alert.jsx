@@ -1,11 +1,11 @@
 
-const Alert = ({height, type}) => {
+const Alert = ({ height }) => {
 
   return (
     <div className={`${height} w-full flex justify-center items-center`}>
       <h2 className="text-lg font-description font-medium
-      text-red-600">
-        No {type} are available
+       text-red-600">
+        No data available
       </h2>
     </div>
   )
