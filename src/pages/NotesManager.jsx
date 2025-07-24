@@ -147,7 +147,7 @@ const Notes = () => {
     <div className="h-auto py-12 w-full flex justify-center
      items-center dark:bg-dark-bg">
       <div className="h-full w-[90%] flex flex-col justify-center
-       items-center gap-16 lg:max-2xl:gap-12">
+       items-center gap-16 lg:gap-14">
         <div className="h-auto w-full text-center">
           <h2 className="text-2xl font-medium font-description
            text-zinc-900 dark:text-zinc-200">
@@ -206,7 +206,7 @@ const Notes = () => {
         <div className="h-auto w-full">
           {
             loading ? <CardsSkeleton /> : notesLength < 1 ? (<Alert
-            height={'h-[400px]'} />) : (<div className="h-auto w-full grid
+            height={'h-[200px]'} />) : (<div className="h-auto w-full grid
               grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {
                   notes.map((value, i) => {
