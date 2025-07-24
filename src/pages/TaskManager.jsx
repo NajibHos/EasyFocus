@@ -127,7 +127,7 @@ const Todo = () => {
         <div className="h-auto w-full text-center">
           <h2 className="text-2xl font-medium font-description text-zinc-900
            dark:text-zinc-200">
-            Todo
+            Todos
           </h2>
         </div>
         <div className="h-auto w-full md:w-[80%] lg:max-2xl:w-[60%]
